@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+         <h:form>
+            <div class="titulo-form">CONSULTA DE CANDIDATOS</div>
+            <h:panelGroup style="text-align: left; margin-bottom: 10px;" layout="block">
+                <h:panelGroup styleClass="form-block" layout="block">
+                    <h:outputLabel for="cpf" value="CPF" styleClass="required"/>
+                    <h:inputText id="cpf" value="#{consultaBean.cpf}" label="CPF" size="15" required="true"/>
+                     <h:commandButton value="Consultar" action="#{consultaBean.consultar}"/>
+                </h:panelGroup>
+            </h:panelGroup>
+            <a style="float: right" href="/inscricao-jsf-1/inicio.xhtml">Página Inicial</a>
+            <h:messages/>
+        </h:form>
+    </ui:define>
+</ui:composition>
