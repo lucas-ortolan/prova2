@@ -3,10 +3,27 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
                 template="./WEB-INF/templates/layout.xhtml">
 
     <ui:define name="styles">
-        <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            .titulo-form {
+                font-size: 14pt;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .iceOutLbl {
+                display: inline-block;
+                margin-left: 4px;
+                width: 50px;
+            }
+
+            .icePnlGrp {
+                margin-top: 4px;
+            }
+        </style>
     </ui:define>
 
     <ui:define name="metadata">
@@ -16,17 +33,47 @@
     </ui:define>
 
     <ui:define name="content">
-         <h:form>
-            <div class="titulo-form">CONSULTA DE CANDIDATOS</div>
-            <h:panelGroup style="text-align: left; margin-bottom: 10px;" layout="block">
-                <h:panelGroup styleClass="form-block" layout="block">
-                    <h:outputLabel for="cpf" value="CPF" styleClass="required"/>
-                    <h:inputText id="cpf" value="#{consultaBean.cpf}" label="CPF" size="15" required="true"/>
-                     <h:commandButton value="Consultar" action="#{consultaBean.consultar}"/>
-                </h:panelGroup>
-            </h:panelGroup>
-            <a style="float: right" href="/inscricao-jsf-1/inicio.xhtml">Página Inicial</a>
+        <h:form>
+            <style type="text/css">
+                /* Important required because row */
+                .ui-datatable-odd {
+                    background-color:lightgray !important;
+                    background-position-y: -1400px; /* IE7 hack */
+                }
+            </style>
+            <div class="titulo-form">CONSULTA</div>
+
+            <ace:textEntry id="codigoIdiomaInput" value="#{consultaBean.codigoIdioma}" label="Idioma" labelPosition="left" required="false" requiredIndicator="(*)" indicatorPosition="right">
+                <!--<ace:ajax render="@this firstNameOutput firstNameMsg"/>-->
+            </ace:textEntry>
+<!--            <ace:pushButton id="filtrarIdiomaBttnAction"
+                                    value="Filtrar Idioma"
+                                    action="#{consultaBean.filtraridiomaAction}">            -->
+    <h:commandButton value="Consultar" action="#{consultaBean.filtrarIdiomaAction}"/>
+            <ace:dataTable id="candidatoTable"
+                           value="#{consultaBean.candidatoDataModel}"
+                           var="candidato"
+                           paginator="true"
+                           paginatorPosition="bottom"
+                           rows="100">
+                <ace:column id="cpf" headerText="CPF" sortBy="#{candidato.cpf}"
+                            filterBy="#{candidato.cpf}" filterMatchMode="contains">
+                    <h:outputText id="cpfCell" value="#{candidato.cpf}"/>
+                </ace:column>
+
+                <ace:column id="nome" headerText="Nome" sortBy="#{candidato.nome}"
+                            filterBy="#{candidato.nome}" filterMatchMode="contains">
+                    <h:outputText id="nomeCell" value="#{candidato.nome}"/>
+                </ace:column>
+                
+                <ace:column id="idioma" headerText="Idioma" sortBy="#{candidato.idioma.descricao}"
+                            filterBy="#{candidato.idioma.descricao}" filterMatchMode="contains">
+                    <h:outputText id="idiomaCell" value="#{candidato.idioma.descricao}"/>
+                </ace:column>
+            </ace:dataTable>
+            <a style="float: right" href="inicio.xhtml">Página Inicial</a>
             <h:messages/>
         </h:form>
     </ui:define>
+
 </ui:composition>

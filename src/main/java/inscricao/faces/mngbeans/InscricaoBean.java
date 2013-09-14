@@ -114,6 +114,7 @@ public class InscricaoBean extends PageBean {
                 em.getTransaction().begin();
                 em.persist(candidato);
                 em.getTransaction().commit();
+                candidato = new Candidato(new Idioma(1)); // inicialmente ingles
                 info("Inscrição realizada com sucesso");
             } else {
                 error("Este CPF já está inscrito");
