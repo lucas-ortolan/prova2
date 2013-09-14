@@ -5,6 +5,7 @@
 package utfpr.persistence.controller;
 
 import inscricao.persistence.entity.Idioma;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -32,5 +33,15 @@ public class IdiomaJpaController extends JpaController {
         } finally {
             if (em != null) em.close();
         }
+    }
+    
+    public Idioma find(String codigo){
+        ArrayList<Idioma> idiomas = new ArrayList<Idioma>(this.findAll());
+        for(Idioma idioma : idiomas){
+            if(idioma.getCodigo().toString().equals(codigo)){
+                return idioma;
+            }
+        }
+        return null;
     }
 }
