@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package utfpr.persistence.controller;
 
 import javax.persistence.EntityManager;
@@ -24,7 +19,7 @@ public class JpaController {
 
     public EntityManagerFactory getEMFactory() {
         if (emf == null)
-            emf = Persistence.createEntityManagerFactory("InscricaoPU");
+            emf = Persistence.createEntityManagerFactory("FinalPU");
         return emf;
     }
 

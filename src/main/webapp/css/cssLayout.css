@@ -1,6 +1,6 @@
 
 body {
-    background-color: white;
+    background-color: black;
     margin: 0 auto;
     padding: 0px;
     text-align: center;
@@ -13,7 +13,7 @@ body {
 }
 
 #top, #bottom, #content {
-    background-color: white;
+    background-color: black;
     color: blue;
     width: 600px;
     padding: 0px 15px
@@ -22,7 +22,7 @@ body {
 #bottom .bottom_content {
     position: relative;
     font-size: 8pt;
-    background-color: white;
+    background-color: black;
     text-align: center;
 }
 

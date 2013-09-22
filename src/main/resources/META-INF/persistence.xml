@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-  <persistence-unit name="InscricaoPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="FinalPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <non-jta-data-source>java:/comp/env/jdbc/exemplo-jsf</non-jta-data-source>
+    <non-jta-data-source>java:/comp/env/jdbc/final</non-jta-data-source>
     <class>inscricao.persistence.entity.Idioma</class>
     <class>inscricao.persistence.entity.Candidato</class>
     <class>inscricao.persistence.entity.ClientePeriodo</class>
+    <class>inscricao.persistence.entity.Usuario</class>
+    <class>inscricao.persistence.entity.Perfil</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ALL</shared-cache-mode>
     <properties>

@@ -41,34 +41,32 @@
                     background-position-y: -1400px; /* IE7 hack */
                 }
             </style>
-            <div class="titulo-form">CONSULTA</div>
+            <div class="titulo-form">ADMINISTRAÇÃO DE USUÁRIOS</div>
 
-            <ace:textEntry id="codigoIdiomaInput" value="#{consultaBean.codigoIdioma}" label="Idioma" labelPosition="left" required="false" requiredIndicator="(*)" indicatorPosition="right">
-                <!--<ace:ajax render="@this firstNameOutput firstNameMsg"/>-->
-            </ace:textEntry>
-<!--            <ace:pushButton id="filtrarIdiomaBttnAction"
-                                    value="Filtrar Idioma"
-                                    action="#{consultaBean.filtraridiomaAction}">            -->
-    <h:commandButton value="Consultar" action="#{consultaBean.filtrarIdiomaAction}"/>
-            <ace:dataTable id="candidatoTable"
-                           value="#{consultaBean.candidatoDataModel}"
-                           var="candidato"
+            <ace:dataTable id="usuariosTable"
+                           value="#{administracaoUsuariosBean.usuariosDataModel}"
+                           var="usuario"
                            paginator="true"
                            paginatorPosition="bottom"
                            rows="100">
-                <ace:column id="cpf" headerText="CPF" sortBy="#{candidato.cpf}"
-                            filterBy="#{candidato.cpf}" filterMatchMode="contains">
-                    <h:outputText id="cpfCell" value="#{candidato.cpf}"/>
+                <ace:column id="codigo" headerText="CÓDIGO" sortBy="#{usuario.codigo}"
+                            filterBy="#{usuario.codigo}" filterMatchMode="contains">
+                    <h:outputText id="codigoCell" value="#{usuario.codigo}"/>
                 </ace:column>
 
-                <ace:column id="nome" headerText="Nome" sortBy="#{candidato.nome}"
-                            filterBy="#{candidato.nome}" filterMatchMode="contains">
-                    <h:outputText id="nomeCell" value="#{candidato.nome}"/>
+                <ace:column id="nome" headerText="NOME" sortBy="#{usuario.nome}"
+                            filterBy="#{usuario.nome}" filterMatchMode="contains">
+                    <h:outputText id="nomeCell" value="#{usuario.nome}"/>
                 </ace:column>
                 
-                <ace:column id="idioma" headerText="Idioma" sortBy="#{candidato.idioma.descricao}"
-                            filterBy="#{candidato.idioma.descricao}" filterMatchMode="contains">
-                    <h:outputText id="idiomaCell" value="#{candidato.idioma.descricao}"/>
+                <ace:column id="email" headerText="EMAIL" sortBy="#{usuario.email}"
+                            filterBy="#{usuario.email}" filterMatchMode="contains">
+                    <h:outputText id="emailCell" value="#{usuario.email}"/>
+                </ace:column>
+                
+                <ace:column id="perfil" headerText="PERFIL" sortBy="#{usuario.perfl.descricao}"
+                            filterBy="#{usuario.perfil.descricao}" filterMatchMode="contains">
+                    <h:outputText id="perfilCell" value="#{usuario.perfil.descricao}"/>
                 </ace:column>
             </ace:dataTable>
             <a style="float: right" href="inicio.xhtml">Página Inicial</a>
