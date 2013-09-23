@@ -28,8 +28,8 @@
             
             <br></br>
             
-            <ice:outputText value="Perfil"/><ice:selectOneMenu id="perfilInput" value="#{cadastroUsuariosBean.usuario.perfil.descricao}" style="width:12em" styleClass="ui-selectonemenu">
-                <f:selectItems value="#{cadastroUsuariosBean.perfis}"/>
+            <ice:outputText value="Perfil"/><ice:selectOneMenu id="perfilInput" value="#{cadastroUsuariosBean.usuario.perfil.codigo}" style="width:12em" styleClass="ui-selectonemenu">
+                <f:selectItems value="#{cadastroUsuariosBean.perfis}" var="i" itemValue="#{i.codigo}" itemLabel="#{i.descricao}"/>
             </ice:selectOneMenu>
             
             <br></br>
@@ -40,7 +40,7 @@
             <br></br>
             <br></br>
             
-            <h:commandButton value="Salvar" action="#{cadastroUsuariosBean.salvarUsuarioAction()}"/>
+            <h:commandButton value="Salvar" action="#{cadastroUsuariosBean.salvarUsuarioAction}"/>
             
             <h:messages/>
         </h:form>

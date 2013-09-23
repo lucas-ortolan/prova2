@@ -51,6 +51,7 @@ public class Usuario implements Serializable {
     private Perfil perfil;
 
     public Usuario() {
+        perfil = new Perfil();
     }
 
     public Usuario(Integer codigo) {

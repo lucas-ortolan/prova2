@@ -47,6 +47,7 @@ public class UsuarioJpaController extends JpaController {
 
         EntityManager em = null;
         try {
+            em = getEntityManager();
             // Se o codigo for -1 significa que eh um usuario novo
             if (usuario.getCodigo() == -1) {
                 
