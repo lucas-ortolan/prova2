@@ -1,4 +1,4 @@
-package inscricao.persistence.entity;
+package flowshark.persistence.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -126,7 +126,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "inscricao.persistence.entity.Usuario[ codigo=" + codigo + " ]";
+        return "flowshark.persistence.entity.Usuario[ codigo=" + codigo + " ]";
     }
     
 }

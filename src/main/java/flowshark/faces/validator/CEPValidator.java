@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package inscricao.faces.validator;
+package flowshark.faces.validator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;

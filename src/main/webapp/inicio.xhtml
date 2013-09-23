@@ -5,31 +5,19 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 template="./WEB-INF/templates/layout.xhtml">   
 
-    <ui:define name="styles">
-        <link href="./css/final.css" rel="stylesheet" type="text/css" />
-    </ui:define>
-
-    <ui:define name="metadata">
-    </ui:define>
-
-    <ui:define name="javascript">
-    </ui:define>
-
     <ui:define name="content">
         <h:form>
             <div class="titulo-form">PÁGINA INICIAL</div>
-            <h:panelGroup style="text-align: left; margin-bottom: 10px;" layout="block">
-                <h:panelGroup styleClass="form-block" layout="block">
+            <h:panelGroup layout="block">
                     <ul>
                         <li><h:commandButton value="Pesquisar" action="pesquisar"/></li>
                         <li><h:commandButton value="Cadastrar Artista" action="cadastrarArtista"/></li>
                         <li><h:commandButton value="Cadastrar Álbum" action="cadastrarAlbum"/></li>
                         <li><h:commandButton value="Cadastrar Faixa" action="cadastrarFaixa"/></li>
-                        <li><h:commandButton value="Cadastrar Usuário" action="cadastrarUsuario"/></li>
+                        <li><h:commandButton value="Cadastrar Usuário" action="#{cadastroUsuariosBean.abrirNovoCadastroAction()}"/></li>
                         <li><h:commandButton value="Administração de Usuários" action="administracaoUsuarios"/></li>
                         <li><h:commandButton value="Login" action="login"/></li>
                     </ul>
-                </h:panelGroup>
             </h:panelGroup>
             <h:messages/>
         </h:form>

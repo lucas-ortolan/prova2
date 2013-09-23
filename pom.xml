@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>utfpr.ct.dainf.if6ae.final</groupId>
-    <artifactId>TrabalhoFinal</artifactId>
+    <groupId>utfpr.ct.dainf.if6ae.flowshark</groupId>
+    <artifactId>flowshark</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Trabalho Final Dev Web</name>
+    <name>flowshark</name>
 
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
@@ -177,7 +177,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>inscricao-jsf-2</finalName>
+        <finalName>flowshark</finalName>
     </build>
     <repositories>
 

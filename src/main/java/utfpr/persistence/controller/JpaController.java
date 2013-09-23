@@ -19,7 +19,7 @@ public class JpaController {
 
     public EntityManagerFactory getEMFactory() {
         if (emf == null)
-            emf = Persistence.createEntityManagerFactory("FinalPU");
+            emf = Persistence.createEntityManagerFactory("flowsharkPU");
         return emf;
     }
 

@@ -1,4 +1,4 @@
-package inscricao.faces.convert;
+package flowshark.faces.convert;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

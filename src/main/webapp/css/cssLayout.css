@@ -4,6 +4,7 @@ body {
     margin: 0 auto;
     padding: 0px;
     text-align: center;
+    color: blue;
 }
 
 .table_layout {
@@ -37,7 +38,7 @@ body {
 }
 
 .left_filler, .right_filler {
-    background-color: white;
+    background-color: black;
     margin: 0px;
     padding: 0px;
     width: auto;
@@ -45,30 +46,30 @@ body {
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: black;
     padding: 5px;
 }
 
 .left_content {
-    background-color: #dddddd;
+    background-color: black;
     padding: 5px;
     margin-left: 170px;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: black;
     padding: 5px;
     margin: 0px 170px 0px 170px;
 }
 
 #top a:link, #top a:visited {
-  color: white;
+  color: blue;
   font-weight : bold;
   text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
+  color: blue;
   font-weight : bold;
   text-decoration : underline;
 }
