@@ -5,6 +5,8 @@
     <non-jta-data-source>java:/comp/env/jdbc/flowshark</non-jta-data-source>
     <class>flowshark.persistence.entity.Usuario</class>
     <class>flowshark.persistence.entity.Perfil</class>
+    <class>flowshark.persistence.entity.Album</class>
+    <class>flowshark.persistence.entity.Artista</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
