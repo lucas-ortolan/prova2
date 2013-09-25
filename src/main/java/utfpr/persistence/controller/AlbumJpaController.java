@@ -42,7 +42,7 @@ public class AlbumJpaController extends JpaController {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<Album> cq = cb.createQuery(Album.class);
             Root<Album> rt = cq.from(Album.class);
-            cq.where(cb.equal(rt.get(Album_.codigo), codigo));
+            cq.where(cb.equal(rt.get(Album_.artista), codigo));
             TypedQuery<Album> q = em.createQuery(cq);
             return q.getResultList();
         } finally {
