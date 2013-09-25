@@ -33,4 +33,34 @@ public class ArtistaJpaController extends JpaController {
         }
     }
     
+    public void remove(Integer codigo) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            Artista artista = em.find(Artista.class, codigo);
+            em.getTransaction().begin();
+            em.remove(artista);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void save(Artista artista) {
+
+        EntityManager em = null;
+        try {
+            em = getEntityManager();   
+            em.getTransaction().begin();
+            em.persist(artista);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
 }
