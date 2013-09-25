@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Artista.findByCodigo", query = "SELECT a FROM Artista a WHERE a.codigo = :codigo"),
     @NamedQuery(name = "Artista.findByNome", query = "SELECT a FROM Artista a WHERE a.nome = :nome")})
 public class Artista implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "artista")
+    private Collection<Faixa> faixaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -106,6 +108,15 @@ public class Artista implements Serializable {
     @Override
     public String toString() {
         return "flowshark.persistence.entity.Artista[ codigo=" + codigo + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Faixa> getFaixaCollection() {
+        return faixaCollection;
+    }
+
+    public void setFaixaCollection(Collection<Faixa> faixaCollection) {
+        this.faixaCollection = faixaCollection;
     }
     
 }
