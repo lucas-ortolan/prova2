@@ -44,7 +44,6 @@ public class CadastroUsuariosBean extends PageBean {
         }*/
         
        UsuarioJpaController ctl = new UsuarioJpaController();
-       usuario.setCodigo(-1);
        ctl.save(usuario);
        return "inicio";
     }

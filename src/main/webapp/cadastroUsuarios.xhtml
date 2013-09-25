@@ -13,8 +13,8 @@
     <ui:define name="content">
         <div class="titulo-form">CADASTRO DE USUÁRIOS</div>
         <h:form>
-            <ice:outputText value="Código"/>
-            <ice:outputText value="#{cadastroUsuariosBean.usuario.codigo}"/>
+            <ace:textEntry id="codigoInput" value="#{cadastroUsuariosBean.usuario.codigo}" label="Código" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+            </ace:textEntry>
             
             <br></br>
             

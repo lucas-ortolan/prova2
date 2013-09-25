@@ -49,12 +49,12 @@ public class UsuarioJpaController extends JpaController {
         try {
             em = getEntityManager();
             // Se o codigo for -1 significa que eh um usuario novo
-            if (usuario.getCodigo() == -1) {
+            //if (usuario.getCodigo() == -1) {
                 
                 em.getTransaction().begin();
                 em.persist(usuario);
                 em.getTransaction().commit();
-            } else { // se nao eh uma atualizacao
+            /*} else { // se nao eh uma atualizacao
                 
                 // Recupera o usuario do BD
                 Usuario usuarioBD = em.find(Usuario.class, usuario.getCodigo());
@@ -67,7 +67,7 @@ public class UsuarioJpaController extends JpaController {
                 usuarioBD.setSenha(usuario.getSenha());
                 
                 em.getTransaction().commit();
-            }
+            }*/
         } finally {
             if (em != null) {
                 em.close();
