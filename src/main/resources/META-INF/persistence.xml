@@ -8,6 +8,7 @@
     <class>flowshark.persistence.entity.Album</class>
     <class>flowshark.persistence.entity.Artista</class>
     <class>flowshark.persistence.entity.Faixa</class>
+    <class>flowshark.persistence.entity.Avaliacao</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ALL</shared-cache-mode>
     <properties>

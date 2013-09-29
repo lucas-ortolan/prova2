@@ -11,8 +11,18 @@
                 >
 
     <ui:define name="content">
-        <div class="titulo-form">LOGIN</div>
-        <h:form>
+        <div class="titulo-form">EFETUAR LOGIN</div>
+        <form action="j_security_check" method="post">  
+            <fieldset>  
+                <label id="labelUser" for="inputUser">E-mail: </label>  
+                <input id="inputUser" type="text" name="j_username" maxlength="20"/><br/>  
+                <label id="labelPassword" for="inputPassword">Senha: </label>  
+                <input id="inputPassword" type="password" name="j_password" maxlength="12"/><br/>  
+
+                <button type="submit">Logar</button>  
+            </fieldset>  
+        </form>
+        <!--<h:form>
             <ice:panelGroup>
                 <ice:panelGroup>
                     <ice:outputLabel for="loginUsuario" value="Usuário"/>
@@ -29,7 +39,7 @@
             <h:commandButton value="Entrar"/>
             
             <h:messages/>
-        </h:form>
+        </h:form>-->
         <a style="float: right" href="inicio.xhtml">Página Inicial</a>
     </ui:define>
 </ui:composition>

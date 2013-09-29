@@ -33,6 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Album.findByCodigo", query = "SELECT a FROM Album a WHERE a.codigo = :codigo"),
     @NamedQuery(name = "Album.findByTitulo", query = "SELECT a FROM Album a WHERE a.titulo = :titulo")})
 public class Album implements Serializable {
+    @JoinColumn(name = "usuario", referencedColumnName = "email")
+    @ManyToOne(optional = false)
+    private Usuario usuario;
     @OneToMany(mappedBy = "album")
     private Collection<Faixa> faixaCollection;
     private static final long serialVersionUID = 1L;
@@ -119,6 +122,14 @@ public class Album implements Serializable {
 
     public void setFaixaCollection(Collection<Faixa> faixaCollection) {
         this.faixaCollection = faixaCollection;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     
 }

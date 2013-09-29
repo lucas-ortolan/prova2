@@ -50,4 +50,62 @@
     <welcome-file-list>
         <welcome-file>inicio.xhtml</welcome-file>
     </welcome-file-list>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/login.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>Colaborador</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Administrador</role-name>
+    </security-role>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Administração Usuários</web-resource-name>
+            <description/>
+            <url-pattern>/administracaoUsuarios.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Cadastro Álbuns</web-resource-name>
+            <description/>
+            <url-pattern>/cadastroAlbuns.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Colaborador</role-name>
+            <role-name>Administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Cadastro Artistas</web-resource-name>
+            <description/>
+            <url-pattern>/cadastroArtistas.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Colaborador</role-name>
+            <role-name>Administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Cadastro Faixas</web-resource-name>
+            <description/>
+            <url-pattern>/cadastroFaixas.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Colaborador</role-name>
+            <role-name>Administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
 </web-app>

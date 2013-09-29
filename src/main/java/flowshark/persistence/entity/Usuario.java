@@ -1,7 +1,9 @@
 package flowshark.persistence.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,10 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "usuario")
@@ -24,6 +28,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
     @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")})
 public class Usuario implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private Collection<Album> albumCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private Collection<Faixa> faixaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private Collection<Avaliacao> avaliacaoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private Collection<Artista> artistaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -128,6 +140,42 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "flowshark.persistence.entity.Usuario[ codigo=" + codigo + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Album> getAlbumCollection() {
+        return albumCollection;
+    }
+
+    public void setAlbumCollection(Collection<Album> albumCollection) {
+        this.albumCollection = albumCollection;
+    }
+
+    @XmlTransient
+    public Collection<Faixa> getFaixaCollection() {
+        return faixaCollection;
+    }
+
+    public void setFaixaCollection(Collection<Faixa> faixaCollection) {
+        this.faixaCollection = faixaCollection;
+    }
+
+    @XmlTransient
+    public Collection<Avaliacao> getAvaliacaoCollection() {
+        return avaliacaoCollection;
+    }
+
+    public void setAvaliacaoCollection(Collection<Avaliacao> avaliacaoCollection) {
+        this.avaliacaoCollection = avaliacaoCollection;
+    }
+
+    @XmlTransient
+    public Collection<Artista> getArtistaCollection() {
+        return artistaCollection;
+    }
+
+    public void setArtistaCollection(Collection<Artista> artistaCollection) {
+        this.artistaCollection = artistaCollection;
     }
     
 }

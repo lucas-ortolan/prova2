@@ -5,7 +5,9 @@
 package flowshark.persistence.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,10 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,14 +36,21 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Faixa.findByTitulo", query = "SELECT f FROM Faixa f WHERE f.titulo = :titulo"),
     @NamedQuery(name = "Faixa.findByDuracao", query = "SELECT f FROM Faixa f WHERE f.duracao = :duracao")})
 public class Faixa implements Serializable {
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "numero")
+    private int numero;
+    @JoinColumn(name = "usuario", referencedColumnName = "email")
+    @ManyToOne(optional = false)
+    private Usuario usuario;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "faixa")
+    private Collection<Avaliacao> avaliacaoCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigo")
     private Integer codigo;
-    @Column(name = "numero")
-    private Integer numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
@@ -77,14 +88,6 @@ public class Faixa implements Serializable {
 
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
-    }
-
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
     }
 
     public String getTitulo() {
@@ -142,6 +145,31 @@ public class Faixa implements Serializable {
     @Override
     public String toString() {
         return "flowshark.persistence.entity.Faixa[ codigo=" + codigo + " ]";
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    @XmlTransient
+    public Collection<Avaliacao> getAvaliacaoCollection() {
+        return avaliacaoCollection;
+    }
+
+    public void setAvaliacaoCollection(Collection<Avaliacao> avaliacaoCollection) {
+        this.avaliacaoCollection = avaliacaoCollection;
     }
     
 }

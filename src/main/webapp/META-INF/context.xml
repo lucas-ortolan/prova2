@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/flowshark">
-  <Resource auth="Container" driverClassName="org.postgresql.Driver" logAbandoned="true" maxActive="5" maxIdle="3" maxWait="10000" name="jdbc/flowshark" password="postgres" removeAbandoned="true" type="javax.sql.DataSource" url="jdbc:postgresql://localhost/teste" username="postgres"/>
+  <Resource auth="Container" driverClassName="org.postgresql.Driver" logAbandoned="true" maxActive="5" maxIdle="3" maxWait="10000" name="jdbc/flowshark" password="postgres" removeAbandoned="true" type="javax.sql.DataSource" url="jdbc:postgresql://localhost/postgres" username="postgres"/>
 </Context>

@@ -11,6 +11,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -32,6 +34,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Artista.findByCodigo", query = "SELECT a FROM Artista a WHERE a.codigo = :codigo"),
     @NamedQuery(name = "Artista.findByNome", query = "SELECT a FROM Artista a WHERE a.nome = :nome")})
 public class Artista implements Serializable {
+    @JoinColumn(name = "usuario", referencedColumnName = "email")
+    @ManyToOne(optional = false)
+    private Usuario usuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "artista")
     private Collection<Faixa> faixaCollection;
     private static final long serialVersionUID = 1L;
@@ -117,6 +122,14 @@ public class Artista implements Serializable {
 
     public void setFaixaCollection(Collection<Faixa> faixaCollection) {
         this.faixaCollection = faixaCollection;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     
 }
