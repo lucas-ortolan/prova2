@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:cc="http://java.sun.com/jsf/composite">
+
+    <cc:interface>
+        <cc:attribute name="usuario" required="true"/>
+        <cc:attribute name="senha" required="true"/>
+        <cc:attribute name="layoutVertical" default="true"/>
+    </cc:interface>
+
+    <cc:implementation xmlns="http://www.w3.org/1999/xhtml"
+                       xmlns:f="http://java.sun.com/jsf/core"
+                       xmlns:ice="http://www.icesoft.com/icefaces/component"
+                       xmlns:ace="http://www.icefaces.org/icefaces/components"
+                       xmlns:cc="http://java.sun.com/jsf/composite">
+
+        <label id="labelUser" for="inputUser">E-mail: </label>  
+        <input id="inputUser" type="text" name="j_username" maxlength="20" value="#{cc.attrs.usuario}"/><br/>  
+
+        <f:verbatim escape="false" rendered="#{cc.attrs.layoutVertical}">
+            <br/>
+        </f:verbatim>
+
+        <label id="labelPassword" for="inputPassword">Senha: </label>  
+        <input id="inputPassword" type="password" name="j_password" maxlength="12" value="#{cc.attrs.senha}"/><br/>  
+
+    </cc:implementation>
+</html>

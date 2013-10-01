@@ -7,40 +7,18 @@
                 xmlns:ace="http://www.icefaces.org/icefaces/components" 
                 xmlns:ice="http://www.icesoft.com/icefaces/component" 
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:comps="http://java.sun.com/jsf/composite/util"
                 template="./WEB-INF/templates/layout.xhtml"
                 >
-
     <ui:define name="content">
         <div class="titulo-form">EFETUAR LOGIN</div>
+        
         <form action="j_security_check" method="post">  
-            <fieldset>  
-                <label id="labelUser" for="inputUser">E-mail: </label>  
-                <input id="inputUser" type="text" name="j_username" maxlength="20"/><br/>  
-                <label id="labelPassword" for="inputPassword">Senha: </label>  
-                <input id="inputPassword" type="password" name="j_password" maxlength="12"/><br/>  
-
-                <button type="submit">Logar</button>  
-            </fieldset>  
+            <comps:login usuario="" senha="" layoutVertical="true"/><br/>
+            <button type="submit">Logar</button>
         </form>
-        <!--<h:form>
-            <ice:panelGroup>
-                <ice:panelGroup>
-                    <ice:outputLabel for="loginUsuario" value="Usuário"/>
-                    <ice:inputText id="loginUsuario" value=""/>
-                </ice:panelGroup>
-                <ice:panelGroup>
-                    <ice:outputLabel for="loginSenha" value="Senha"/>
-                    <ice:inputSecret id="loginSenha" value=""/>
-                </ice:panelGroup>
-            </ice:panelGroup>
-       
-            <br></br>
-            
-            <h:commandButton value="Entrar"/>
-            
-            <h:messages/>
-        </h:form>-->
-        <a style="float: right" href="inicio.xhtml">Página Inicial</a>
     </ui:define>
+
+    <a style="float: right" href="inicio.xhtml">Página Inicial</a>
 </ui:composition>
 
