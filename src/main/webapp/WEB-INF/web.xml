@@ -57,6 +57,11 @@
             <form-error-page>/login.xhtml</form-error-page>
         </form-login-config>
     </login-config>
+    <error-page>
+        <!-- Forbidden directory listing -->
+        <error-code>403</error-code>
+        <location>/acesso_negado.xhtml</location>
+    </error-page>
     <security-role>
         <description/>
         <role-name>Colaborador</role-name>
