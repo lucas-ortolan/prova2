@@ -1,10 +1,9 @@
 
 body {
-    background-color: black;
+    background-color: white;
     margin: 0 auto;
     padding: 0px;
     text-align: center;
-    color: blue;
 }
 
 .table_layout {
@@ -14,7 +13,7 @@ body {
 }
 
 #top, #bottom, #content {
-    background-color: black;
+    background-color: white;
     color: blue;
     width: 600px;
     padding: 0px 15px
@@ -23,7 +22,7 @@ body {
 #bottom .bottom_content {
     position: relative;
     font-size: 8pt;
-    background-color: black;
+    background-color: white;
     text-align: center;
 }
 
@@ -38,7 +37,7 @@ body {
 }
 
 .left_filler, .right_filler {
-    background-color: black;
+    background-color: white;
     margin: 0px;
     padding: 0px;
     width: auto;
@@ -46,30 +45,30 @@ body {
 
 .center_content {
     position: relative;
-    background-color: black;
+    background-color: #dddddd;
     padding: 5px;
 }
 
 .left_content {
-    background-color: black;
+    background-color: #dddddd;
     padding: 5px;
     margin-left: 170px;
 }
 
 .right_content {
-    background-color: black;
+    background-color: #dddddd;
     padding: 5px;
     margin: 0px 170px 0px 170px;
 }
 
 #top a:link, #top a:visited {
-  color: blue;
+  color: white;
   font-weight : bold;
   text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: blue;
+  color: black;
   font-weight : bold;
   text-decoration : underline;
 }

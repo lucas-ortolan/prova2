@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                template="./WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <style type="text/css">
+            .titulo-form {
+                font-size: 14pt;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .iceOutLbl {
+                display: inline-block;
+                margin-left: 4px;
+                width: 50px;
+            }
+            
+            .icePnlGrp {
+                margin-top: 4px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <div class="titulo-form">LISTA INSCRICOES</div>
+            <ice:panelGroup style="text-align: left; margin-bottom: 10px;">
+                <ice:dataTable id="inscricoesTable"
+                           value="#{listarBean.inscricoesDataModel}"
+                           var="inscricao"
+                           resizable="false"
+                           width="100%" cellspacing="1" cellpadding="5"
+                           rows="10">
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="NUMERO"/>
+                    </f:facet>
+                    #{inscricao.numero}
+                </ice:column>
+
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="CPF"/>
+                    </f:facet>
+                    #{inscricao.cpf}
+                </ice:column>
+
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="NOME"/>
+                    </f:facet>
+                    <h:commandButton value="#{inscricao.nome}" action="#{listarBean.editarInscricao(inscricao)}"/>
+                </ice:column>
+
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="CIDADE"/>
+                    </f:facet>
+                    #{inscricao.cidade}
+                </ice:column>
+                    
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="ESTADO"/>
+                    </f:facet>
+                    #{inscricao.estado}
+                </ice:column>
+                    
+                <ice:column>
+                    <f:facet name="header">
+                        <ice:outputText value="MINICURSOS"/>
+                    </f:facet>
+                    <h:commandButton value="Minicursos" action="#{listarBean.listarMinicursos(inscricao)}"/>
+                </ice:column>
+            </ice:dataTable>
+            <ice:dataPaginator id="paginator"
+                               for="inscricoesTable" 
+                               fastStep="2"
+                               paginator="true"
+                               paginatorMaxPages="3">
+                <f:facet name="first">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-first.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="First" title="First"/>
+                </f:facet>
+                <f:facet name="last">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-last.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="Last" title="Last"/>
+                </f:facet>
+                <f:facet name="previous">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-previous.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="Previous" title="Previous"/>
+                </f:facet>
+                <f:facet name="next">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-next.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="Next" title="Next"/>
+                </f:facet>
+                <f:facet name="fastforward">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-ff.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="Fast Forward" title="Fast Forward"/>
+                </f:facet>
+                <f:facet name="fastrewind">
+                    <h:graphicImage value="/xmlhttp/css/rime/css-images/arrow-fr.gif"
+                                    style="width: 18px; height: 18px; border: none;"
+                                    alt="Fast Rewind" title="Fast Rewind"/>
+                </f:facet>
+            </ice:dataPaginator>
+            </ice:panelGroup>
+            <ice:messages/>
+        </ice:form>
+        
+        <ace:panel visible="#{listarBean.edicao}">
+            <ice:form>
+                <ice:outputLabel for="editar" value="EDITAR"/>
+                <br></br>
+                <ice:outputLabel for="numero" value="Numero"/>
+                <ice:inputText id="numero" value="#{listarBean.inscricao.numero}" size="30"
+                         styleClass="ui-inputfield" label="Nome" maxlength="100" required="true" readonly="true"/>
+                <br></br>
+                <ice:outputLabel for="cpf" value="CPF"/>
+                <ice:inputText id="cpf" value="#{listarBean.inscricao.cpf}" size="30"
+                               styleClass="ui-inputfield" label="Nome" maxlength="100" required="true" readonly="true"/>
+                <br></br>
+                <ice:outputLabel for="nome" value="Nome"/>
+                <ice:inputText id="nome" value="#{listarBean.inscricao.nome}" size="50"
+                         styleClass="ui-inputfield" label="Nome" maxlength="100" required="true"/>
+                <br></br>
+                <ice:outputLabel for="cidade" value="Cidade"/>
+                <ice:inputText id="cidade" value="#{listarBean.inscricao.cidade}" size="50"
+                         styleClass="ui-inputfield" label="Nome" maxlength="100" required="true"/>
+                <br></br>
+                <ice:outputLabel for="estado" value="Estado"/>
+                <ice:inputText id="estado" value="#{listarBean.inscricao.estado}" size="20"
+                         styleClass="ui-inputfield" label="Nome" maxlength="100" required="true"/>
+                <br></br>
+                <ice:commandButton value="Salvar" action="#{listarBean.salvarInscricao}" style="margin-top: 1em"/>
+            </ice:form>
+        </ace:panel>
+    </ui:define>
+
+</ui:composition>
